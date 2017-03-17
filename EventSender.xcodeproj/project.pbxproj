@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FFE64DDB1E7C9046000FE1FD /* EventSender.h in Headers */ = {isa = PBXBuildFile; fileRef = FFE64DD91E7C9046000FE1FD /* EventSender.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FFE64DE21E7C906E000FE1FD /* EventSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE64DE11E7C906E000FE1FD /* EventSender.swift */; };
+		FFE64DE41E7C9194000FE1FD /* EventSender.podspec in Resources */ = {isa = PBXBuildFile; fileRef = FFE64DE31E7C9194000FE1FD /* EventSender.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -16,6 +17,7 @@
 		FFE64DD91E7C9046000FE1FD /* EventSender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventSender.h; sourceTree = "<group>"; };
 		FFE64DDA1E7C9046000FE1FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFE64DE11E7C906E000FE1FD /* EventSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSender.swift; sourceTree = "<group>"; };
+		FFE64DE31E7C9194000FE1FD /* EventSender.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EventSender.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +34,7 @@
 		FFE64DCC1E7C9046000FE1FD = {
 			isa = PBXGroup;
 			children = (
+				FFE64DE31E7C9194000FE1FD /* EventSender.podspec */,
 				FFE64DD81E7C9046000FE1FD /* EventSender */,
 				FFE64DD71E7C9046000FE1FD /* Products */,
 			);
@@ -126,6 +129,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFE64DE41E7C9194000FE1FD /* EventSender.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
