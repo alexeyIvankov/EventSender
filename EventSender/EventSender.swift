@@ -8,26 +8,23 @@
 
 import Foundation
 
-
 public class EventSender<T>
 {
-    typealias T = AnyObject
-    
-    fileprivate let subscribers:NSMapTable<NSString,T>;
+    fileprivate let subscribers:NSMapTable<NSString,AnyObject>;
     fileprivate let lock:NSRecursiveLock
     
     init()
     {
-        subscribers = NSMapTable<NSString,T>(keyOptions:NSPointerFunctions.Options.copyIn, valueOptions:NSPointerFunctions.Options.strongMemory);
+        subscribers = NSMapTable<NSString,AnyObject>(keyOptions:NSPointerFunctions.Options.copyIn, valueOptions:NSPointerFunctions.Options.strongMemory);
         lock = NSRecursiveLock();
     }
     
     
-    func subscribe(subscriber: T, typeEvent:String)
+    func subscribe(subscriber: AnyObject, typeEvent:String)
     {
         self.threadSaveOperation
         {
-            var container:NSHashTable<T>? = self.subscribers.object(forKey: NSString(string:typeEvent)) as! NSHashTable<T>?
+            var container:NSHashTable<AnyObject>? = self.subscribers.object(forKey: NSString(string:typeEvent)) as! NSHashTable<AnyObject>?
             
             if container == nil
             {
@@ -38,22 +35,22 @@ public class EventSender<T>
         }
     }
     
-    func unsubscribe(subscriber: T, typeEvent:String)
+    func unsubscribe(subscriber: AnyObject, typeEvent:String)
     {
         self.threadSaveOperation
         {
-            let container:NSHashTable<T>? = self.subscribers.object(forKey: NSString(string:typeEvent)) as! NSHashTable<EventSender.T>?;
+            let container:NSHashTable<AnyObject>? = self.subscribers.object(forKey: NSString(string:typeEvent)) as! NSHashTable<AnyObject>?;
             container?.remove(subscriber);
         }
     }
     
-    func subscribers(typeEvent:String) -> [T]?
+    func subscribers(typeEvent:String) -> [AnyObject]?
     {
-        var subscribers:[T]  = [];
+        var subscribers:[AnyObject]  = [];
         
         self.threadSaveOperation
         {
-            let container:NSHashTable<T>? = self.subscribers.object(forKey: NSString(string:typeEvent)) as! NSHashTable<EventSender.T>?;
+            let container:NSHashTable<AnyObject>? = self.subscribers.object(forKey: NSString(string:typeEvent)) as! NSHashTable<AnyObject>?;
             
             if container != nil
             {
@@ -61,7 +58,6 @@ public class EventSender<T>
                     subscribers.append(item);
                 }
             }
-
         }
         
         return subscribers;
